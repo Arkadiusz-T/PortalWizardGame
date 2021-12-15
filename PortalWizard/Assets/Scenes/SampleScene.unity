@@ -1447,6 +1447,7 @@ GameObject:
   - component: {fileID: 112951119}
   - component: {fileID: 112951121}
   - component: {fileID: 112951120}
+  - component: {fileID: 112951122}
   m_Layer: 0
   m_Name: characterBody-removebg-preview
   m_TagString: Untagged
@@ -1566,6 +1567,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &112951122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112951117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c784560f246ae4745b71da2c8383fe95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizAxis: 0
+  turned_right: 1
+  turned_left: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

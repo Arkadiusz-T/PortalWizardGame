@@ -5,11 +5,10 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     public float movementSpeed = 1;
-    private Rigidbody2D rg;
     // Start is called before the first frame update
     void Start()
     {
-        rg = GetComponent<Rigidbody2D>();
+        
     }
 
     // Update is called once per frame

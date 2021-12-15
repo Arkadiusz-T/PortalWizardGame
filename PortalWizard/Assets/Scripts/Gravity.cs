@@ -6,10 +6,9 @@ public class Gravity : MonoBehaviour
 {
     public float gravityModifier = 1f;
     protected Vector2 velocity;
-    protected Rigidbody2D rb;
 
     void OnEnable(){
-        rb = GetComponent<Rigidbody2D> ();
+
     }
     // Start is called before the first frame update
     void Start()
@@ -31,6 +30,6 @@ public class Gravity : MonoBehaviour
     }
 
     void Movement(Vector2 move){
-        rb.position = rb.position + move;
+        transform.position += new Vector3(move[0], move[1], 0) * Time.deltaTime * gravityModifier;
     }
 }
