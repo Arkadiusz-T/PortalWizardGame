@@ -16,8 +16,8 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        Destroy(gameObject);
+        Instantiate(portal, new Vector3(rb.transform.position.x, rb.transform.position.y, -1), hitInfo.transform.rotation);
         Debug.Log(hitInfo.transform.position);
-        Instantiate(portal, hitInfo.transform);
+        Destroy(gameObject);
     }
 }
