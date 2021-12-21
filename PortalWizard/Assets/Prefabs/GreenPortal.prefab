@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 6569174785229295701}
   - component: {fileID: 1732968698888193575}
+  - component: {fileID: -3932402111712164761}
   - component: {fileID: 1194931235949219039}
   - component: {fileID: -3660696462787328903}
   - component: {fileID: 1659591851369087111}
-  - component: {fileID: -8948876462093393301}
+  - component: {fileID: -6140076781467401149}
   m_Layer: 0
   m_Name: GreenPortal
   m_TagString: GreenPortal
@@ -86,6 +87,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &-3932402111712164761
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054536148223047233}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &1194931235949219039
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,7 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5ba14b78158b94daf11779c92165df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 10
+  time: 100
 --- !u!114 &1659591851369087111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagToRemove: GreenPortal
---- !u!114 &-8948876462093393301
+--- !u!114 &-6140076781467401149
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -147,6 +169,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1054536148223047233}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d4100db719fa3e4883937bdca8657b0, type: 3}
+  m_Script: {fileID: 11500000, guid: c1de84dd7ccc3bc418d47b6c5d5c5d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  exitPortal: {fileID: 0}
+  player: {fileID: 0}

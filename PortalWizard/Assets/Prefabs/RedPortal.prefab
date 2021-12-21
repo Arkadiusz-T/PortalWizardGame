@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1347756365583461067}
   - component: {fileID: 3027707154906199226}
+  - component: {fileID: -5177625805361079323}
   - component: {fileID: 2241278034830718629}
   - component: {fileID: 4872721229868732571}
   - component: {fileID: -4640155210404591704}
@@ -85,6 +86,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &-5177625805361079323
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1316691843847497536}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &2241278034830718629
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -123,7 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c5ba14b78158b94daf11779c92165df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  time: 5
+  time: 100
 --- !u!114 &-4640155210404591704
 MonoBehaviour:
   m_ObjectHideFlags: 0
