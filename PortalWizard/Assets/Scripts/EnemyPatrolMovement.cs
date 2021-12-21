@@ -6,16 +6,42 @@ public class EnemyPatrolMovement : MonoBehaviour
 {
 
     public float movementSpeed;
-    public static RaycastHit2D rc;
+    public Transform grountChecker;
+    public static RaycastHit2D rcDown;
+    public static RaycastHit2D rcForward;
+    private bool facingLeft = true;
     // Start is called before the first frame update
     void Start()
     {
-        rc = Physics2D.Raycast(transform.position, Vector2.left, 0.2f);
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-            transform.position += new Vector3(-1, 0, 0) * Time.deltaTime * movementSpeed;
+        rcDown = Physics2D.Raycast(grountChecker.position, Vector2.down);
+        rcForward = Physics2D.Raycast(grountChecker.position, Vector2.left, 0.01f);
+
+        if (rcDown.collider != null && rcForward.collider == null)
+        {
+            if(facingLeft) transform.position += new Vector3(-1, 0, 0) * Time.deltaTime * movementSpeed;
+            else transform.position += new Vector3(1, 0, 0) * Time.deltaTime * movementSpeed;
+        }
+
+        else if (rcDown.collider == null || rcForward.collider != null)
+        {
+            if (facingLeft) 
+            {
+                transform.localRotation = Quaternion.Euler(0, 180, 0);
+                facingLeft = false;
+            }
+
+            else
+            {
+                transform.localRotation = Quaternion.Euler(0, 0, 0);
+                facingLeft = true;
+            }
+            
+        }
     }
 }
