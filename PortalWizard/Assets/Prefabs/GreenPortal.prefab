@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1194931235949219039}
   - component: {fileID: -3660696462787328903}
   - component: {fileID: 1659591851369087111}
+  - component: {fileID: -8948876462093393301}
   m_Layer: 0
   m_Name: GreenPortal
   m_TagString: GreenPortal
@@ -137,3 +138,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tagToRemove: GreenPortal
+--- !u!114 &-8948876462093393301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054536148223047233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d4100db719fa3e4883937bdca8657b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
