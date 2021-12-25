@@ -20,7 +20,7 @@ public class EnemyPatrolMovement : MonoBehaviour
     void Update()
     {
         rcDown = Physics2D.Raycast(grountChecker.position, Vector2.down);
-        rcForward = Physics2D.Raycast(grountChecker.position, Vector2.left, 0.01f);
+        rcForward = Physics2D.Raycast(grountChecker.position, Vector2.left, 0.001f);
 
         if (rcDown.collider != null && rcForward.collider == null)
         {
