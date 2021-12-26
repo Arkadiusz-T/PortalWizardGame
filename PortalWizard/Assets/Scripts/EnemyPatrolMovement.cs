@@ -14,14 +14,14 @@ public class EnemyPatrolMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        maskLayer = LayerMask.GetMask("Ground");
+        maskLayer = LayerMask.GetMask("Ground", "Enemy");
     }
 
     // Update is called once per frame
     void Update()
     {
         rcDown = Physics2D.Raycast(grountChecker.position, Vector2.down);
-        rcForward = Physics2D.Raycast(grountChecker.position, Vector2.left, 0.001f, maskLayer);
+        rcForward = Physics2D.Raycast(grountChecker.position, Vector2.left, 0.01f, maskLayer);
 
         if (rcDown.collider != null && rcForward.collider == null)
         {
