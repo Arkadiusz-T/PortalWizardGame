@@ -10,17 +10,18 @@ public class EnemyPatrolMovement : MonoBehaviour
     public static RaycastHit2D rcDown;
     public static RaycastHit2D rcForward;
     private bool facingLeft = true;
+    private int maskLayer;
     // Start is called before the first frame update
     void Start()
     {
-        
+        maskLayer = LayerMask.GetMask("Ground");
     }
 
     // Update is called once per frame
     void Update()
     {
         rcDown = Physics2D.Raycast(grountChecker.position, Vector2.down);
-        rcForward = Physics2D.Raycast(grountChecker.position, Vector2.left, 0.001f);
+        rcForward = Physics2D.Raycast(grountChecker.position, Vector2.left, 0.001f, maskLayer);
 
         if (rcDown.collider != null && rcForward.collider == null)
         {
