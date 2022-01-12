@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour
     public Rigidbody2D rb;
     public GameObject portal;
 
-    private Transform lastFrameTransform;
+    public Transform lastFrameTransform;
     private Vector3 lastRBTrajectory;
     private RaycastHit2D checkForWall;
 
@@ -23,6 +23,10 @@ public class Bullet : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(rb.transform.position);
+        Debug.Log(rb.transform.position - lastFrameTransform.position);
+        Debug.Log(lastFrameTransform.position);
+        lastFrameTransform = rb.transform;
         // get projectile position and vector between them
         // lastMovedTrajectory = currentAndLastTransform[1].position - currentAndLastTransform[0].position;
 

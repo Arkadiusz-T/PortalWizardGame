@@ -6,6 +6,7 @@ public class RespawnPlayer : MonoBehaviour
 {
     private GameObject player;
     public GameObject playerPrefab;
+    public Transform respawnTransformPosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class RespawnPlayer : MonoBehaviour
         {
             if (Input.anyKey)
             {
-                GameObject.Instantiate(playerPrefab, gameObject.transform);
+                GameObject.Instantiate(playerPrefab, respawnTransformPosition);
             }
         }
     }
