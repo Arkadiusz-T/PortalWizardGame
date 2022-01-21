@@ -5,44 +5,43 @@ using UnityEngine;
 public class EnemyPatrolMovement : MonoBehaviour
 {
 
-    public float movementSpeed;
+    public float movementSpeed = 5f;
     public Transform grountChecker;
     public static RaycastHit2D rcDown;
     public static RaycastHit2D rcForward;
     private bool facingLeft = true;
     private int maskLayer;
-    // Start is called before the first frame update
+
+    Rigidbody2D rb;
+    Vector3 startScale;
+
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         maskLayer = LayerMask.GetMask("Ground", "Enemy");
+        startScale = transform.localScale;
     }
 
-    // Update is called once per frame
     void Update()
     {
+        rb.velocity = new Vector2(-movementSpeed, 0f);
         rcDown = Physics2D.Raycast(grountChecker.position, Vector2.down);
         rcForward = Physics2D.Raycast(grountChecker.position, Vector2.left, 0.01f, maskLayer);
 
         if (rcDown.collider != null && rcForward.collider == null)
         {
-            if(facingLeft) transform.position += new Vector3(-1, 0, 0) * Time.deltaTime * movementSpeed;
-            else transform.position += new Vector3(1, 0, 0) * Time.deltaTime * movementSpeed;
+            FlipEnemyFacing();
         }
 
         else if (rcDown.collider == null || rcForward.collider != null)
         {
-            if (facingLeft) 
-            {
-                transform.localRotation = Quaternion.Euler(0, 180, 0);
-                facingLeft = false;
-            }
-
-            else
-            {
-                transform.localRotation = Quaternion.Euler(0, 0, 0);
-                facingLeft = true;
-            }
-            
+            FlipEnemyFacing();
         }
+    }
+
+    void FlipEnemyFacing()
+    {
+        movementSpeed = -movementSpeed;
+        transform.localScale = new Vector3(-Mathf.Sign(rb.velocity.x) * startScale.x, startScale.y, startScale.z);
     }
 }

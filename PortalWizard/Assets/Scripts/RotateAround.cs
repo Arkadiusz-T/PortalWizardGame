@@ -18,8 +18,8 @@ public class RotateAround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        angle = rotateSpeed * Time.deltaTime;
-        var offset = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle)) * radius;
-        transform.position = center + offset;
+        // angle = rotateSpeed * Time.deltaTime;
+        // var offset = new Vector2(Mathf.Sin(angle), Mathf.Cos(angle)) * radius;
+        // transform.position = center + offset;
     }
 }

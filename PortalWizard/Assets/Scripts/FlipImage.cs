@@ -4,31 +4,25 @@ using UnityEngine;
 
 public class FlipImage : MonoBehaviour
 {
-    public float horizAxis;
-    public bool turned_right = true;
-    public bool turned_left = false;
-    // Start is called before the first frame update
+    Rigidbody2D rb;
+    Vector3 startScale;
+
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        startScale = transform.localScale;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        horizAxis = Input.GetAxis("Horizontal");
+        if (PlayerHasHorizontalSpeed())
+        {
+            transform.localScale = new Vector3(-Mathf.Sign(rb.velocity.x) * startScale.x, startScale.y, startScale.z);
+        }
+    }
 
-        if(turned_right && horizAxis < 0)
-        {
-            turned_right = false;
-            turned_left = true;
-            transform.localRotation = Quaternion.Euler(0, 180, 0);
-        }
-        if (turned_left && horizAxis > 0)
-        {
-            turned_right = true;
-            turned_left = false;
-            transform.localRotation = Quaternion.Euler(0, 0, 0);
-        }
+    bool PlayerHasHorizontalSpeed()
+    {
+        return Mathf.Abs(rb.velocity.x) > Mathf.Epsilon;
     }
 }

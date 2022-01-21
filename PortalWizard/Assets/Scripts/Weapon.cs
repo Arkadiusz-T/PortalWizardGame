@@ -5,37 +5,31 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    public Transform firePoint;
-    public GameObject greenPortal;
-    public GameObject redPortal;
+    [SerializeField] Transform firePoint;
+    [SerializeField] GameObject bullet;
+    [SerializeField] GameObject greenPortal;
+    [SerializeField] GameObject redPortal;
+    [SerializeField] Animator animator;
 
-    // Start is called before the first frame update
-    void Start()
+    bool createRedPortal = false;
+
+    void OnFire()
     {
-        
+        animator.SetTrigger("Attack");
+        Instantiate(bullet, firePoint.position, transform.rotation);
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnCreatePortal()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (createRedPortal)
         {
-            shootGreenPortal();
+            Instantiate(redPortal, firePoint.position, transform.rotation);
+            createRedPortal = false;
         }
-
-        if (Input.GetButtonDown("Fire2"))
+        else
         {
-            shootRedPortal();
+            Instantiate(greenPortal, firePoint.position, transform.rotation);
+            createRedPortal = true;
         }
-    }
-
-    private void shootRedPortal()
-    {
-        Instantiate(redPortal, firePoint.position, firePoint.rotation);
-    }
-
-    void shootGreenPortal()
-    {
-        Instantiate(greenPortal, firePoint.position, firePoint.rotation);
     }
 }

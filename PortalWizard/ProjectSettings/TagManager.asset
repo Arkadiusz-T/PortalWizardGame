@@ -8,6 +8,7 @@ TagManager:
   - GreenPortal
   - RedPortal
   - Enemy
+  - Monster
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Portal
   - Player
   - Enemy
-  - 
+  - Bullets
   - 
   - 
   - 
@@ -44,4 +45,22 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 3844876283
+    locked: 0
+  - name: Ground
+    uniqueID: 2058138349
+    locked: 0
+  - name: Ladder
+    uniqueID: 1679421431
+    locked: 0
+  - name: Hazards
+    uniqueID: 2323080391
+    locked: 0
+  - name: Enemies
+    uniqueID: 53685185
+    locked: 0
+  - name: Player
+    uniqueID: 4128522973
     locked: 0
