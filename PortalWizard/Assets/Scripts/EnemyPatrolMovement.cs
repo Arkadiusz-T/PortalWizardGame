@@ -4,44 +4,32 @@ using UnityEngine;
 
 public class EnemyPatrolMovement : MonoBehaviour
 {
-
-    public float movementSpeed = 5f;
-    public Transform grountChecker;
-    public static RaycastHit2D rcDown;
-    public static RaycastHit2D rcForward;
-    private bool facingLeft = true;
-    private int maskLayer;
-
-    Rigidbody2D rb;
+    [SerializeField] float moveSpeed = 3f;
+    Rigidbody2D myRigidbody;
     Vector3 startScale;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        maskLayer = LayerMask.GetMask("Ground", "Enemy");
+        myRigidbody = GetComponent<Rigidbody2D>();
         startScale = transform.localScale;
     }
 
     void Update()
     {
-        rb.velocity = new Vector2(-movementSpeed, 0f);
-        rcDown = Physics2D.Raycast(grountChecker.position, Vector2.down);
-        rcForward = Physics2D.Raycast(grountChecker.position, Vector2.left, 0.01f, maskLayer);
+        myRigidbody.velocity = new Vector2(-moveSpeed, 0f);
+    }
 
-        if (rcDown.collider != null && rcForward.collider == null)
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag != "Player")
         {
-            FlipEnemyFacing();
-        }
-
-        else if (rcDown.collider == null || rcForward.collider != null)
-        {
+            moveSpeed = -moveSpeed;
             FlipEnemyFacing();
         }
     }
 
     void FlipEnemyFacing()
     {
-        movementSpeed = -movementSpeed;
-        transform.localScale = new Vector3(-Mathf.Sign(rb.velocity.x) * startScale.x, startScale.y, startScale.z);
+        transform.localScale = new Vector3(Mathf.Sign(myRigidbody.velocity.x) * startScale.x, startScale.y, startScale.z);
     }
 }

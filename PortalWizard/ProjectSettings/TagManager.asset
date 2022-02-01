@@ -9,6 +9,7 @@ TagManager:
   - RedPortal
   - Enemy
   - Monster
+  - Blockade
   layers:
   - Default
   - TransparentFX
@@ -21,8 +22,8 @@ TagManager:
   - Player
   - Enemy
   - Bullets
-  - 
-  - 
+  - Hazards
+  - Ladder
   - 
   - 
   - 
@@ -43,14 +44,8 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Background
     uniqueID: 3844876283
-    locked: 0
-  - name: Ground
-    uniqueID: 2058138349
     locked: 0
   - name: Ladder
     uniqueID: 1679421431
@@ -63,4 +58,10 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 4128522973
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 2058138349
     locked: 0
