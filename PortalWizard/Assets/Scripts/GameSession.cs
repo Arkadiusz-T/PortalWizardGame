@@ -10,9 +10,8 @@ public class GameSession : MonoBehaviour
     [SerializeField] int playerLives = 3;
 
     [SerializeField] TextMeshProUGUI livesText;
-    [SerializeField] Image keyImage;
 
-    public bool keyPicked = false;
+    bool keyPicked = false;
 
     void Awake()
     {
@@ -36,6 +35,7 @@ public class GameSession : MonoBehaviour
 
     public void ProcessPlayerDeath()
     {
+        RemoveKey();
         if (playerLives > 1)
         {
             TakeLife();
@@ -48,13 +48,13 @@ public class GameSession : MonoBehaviour
 
     public void AddKey()
     {
-        keyImage.enabled = true;
+        getKeyImage().enabled = true;
         keyPicked = true;
     }
 
     public void RemoveKey()
     {
-        keyImage.enabled = false;
+        getKeyImage().enabled = false;
         keyPicked = false;
     }
 
@@ -69,5 +69,14 @@ public class GameSession : MonoBehaviour
     {
         SceneManager.LoadScene(0);
         Destroy(gameObject);
+    }
+
+    public bool IsKeyPicked()
+    {
+        return keyPicked;
+    }
+
+    Image getKeyImage() {
+        return GameObject.FindWithTag("KeyImage").GetComponent<Image>();
     }
 }

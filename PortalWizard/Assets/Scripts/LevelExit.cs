@@ -32,6 +32,5 @@ public class LevelExit : MonoBehaviour
         }
         gameSession.RemoveKey();
         SceneManager.LoadScene(nextSceneIndex);
-
     }
 }

@@ -10,6 +10,8 @@ TagManager:
   - Enemy
   - Monster
   - Blockade
+  - HeartImage
+  - KeyImage
   layers:
   - Default
   - TransparentFX

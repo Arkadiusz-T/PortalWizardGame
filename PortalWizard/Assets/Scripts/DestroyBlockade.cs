@@ -13,7 +13,7 @@ public class DestroyBlockade : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player" && gameSession.keyPicked)
+        if (other.gameObject.tag == "Player" && gameSession.IsKeyPicked())
         {
             Destroy(gameObject);
         }
