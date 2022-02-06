@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] GameObject redPortal;
     [SerializeField] Animator animator;
 
-    bool createRedPortal = false;
+    bool createRedPortal = true;
 
     void OnFire()
     {
